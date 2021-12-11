@@ -5,7 +5,7 @@ public class Loading_Data {
     private LinkedHashSet<String> hs = new LinkedHashSet<String>();
 
     public Loading_Data() {
-        this.hs = null;
+
     }
 
     public LinkedHashSet<String> ReadData(String filename) throws IOException {
