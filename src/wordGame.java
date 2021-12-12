@@ -11,18 +11,23 @@ public class wordGame {
     public   void gameStart(){
         String st = "empathy";
         System.out.println("Word Game started with empathy ");
+        words.add(st);
         do {
+            System.out.println(words);
             String lastletter = st.substring(st.length() - 1);
             String inp = Input();
+            if(inp==null){
+                gameRestart();
+            }
             if (inp.charAt(0) != lastletter.charAt(0) ){
                 System.out.println("“Entered word is invalid or does not exist in the \n" +
                         "dictionary, please try again”");
-                if (st == words.get(words.size() - 1)){
+                if (st == words.get(words.size() - 1) ){
                     gameRestart();
                     return;
                 }
             }
-
+            words.add(inp);
 
         }while (continueORterminate);
     }
@@ -45,7 +50,7 @@ public class wordGame {
         String line;
         do {
             System.out.println("Enter a word (caseSensitive) to play the game, such as \n" +
-                    "empathy->yet->top...: Yes");
+                    "empathy->yet->top...:  ");
             line = in.next();
             if(isStringOnlyAlphabet(line)){
                 return line;
