@@ -13,13 +13,20 @@ public class wordGame {
         System.out.println("Word Game started with empathy ");
         words.add(st);
         do {
+
+
             System.out.println(words);
             String lastletter = st.substring(st.length() - 1);
             String inp = Input();
+            if(words.contains(inp)){
+                System.out.println("Game Over !!!");
+                return;
+            }
             if(inp==null){
                 gameRestart();
             }
             if (inp.charAt(0) != lastletter.charAt(0) ){
+                outcome = false;
                 System.out.println("“Entered word is invalid or does not exist in the \n" +
                         "dictionary, please try again”");
                 if (st == words.get(words.size() - 1) ){
@@ -57,6 +64,7 @@ public class wordGame {
             }else {
                 System.out.println("Wrong input !!!! input must be Characters only");
             }
+
         }while (true);
     }
 
@@ -66,6 +74,4 @@ public class wordGame {
                 && (!str.equals(""))
                 && (str.matches("^[a-zA-Z]*$")));
     }
-
-
 }
